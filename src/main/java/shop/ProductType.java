@@ -4,13 +4,17 @@ package shop;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 @Getter
 @Setter
 public class ProductType {
+
     private String category;
     private String brand;
     private String type;
     private int price;
+    //public ArrayList products = new ArrayList();
 
     public ProductType(){
         this.category = "";
