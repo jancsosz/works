@@ -21,7 +21,7 @@ public class Cart {
         }
     }
 
-    public void transaction(){
+    public ArrayList<Product> transaction(){
         System.out.println("Sikeresen megvásároltad a következő termékeket: ");
 
         listCart();
@@ -32,7 +32,9 @@ public class Cart {
 
         //+ nyilvantartasbol kiszedni
 
-        this.cart.clear();
+        return this.cart;
+
+        //this.cart.clear();
 
     }
 
@@ -41,5 +43,9 @@ public class Cart {
         return cart.stream()
                 .map(x -> x.getType().getPrice())
                 .reduce(0, (ans, i) -> ans + i);
+    }
+
+    public void clearCart(){
+        this.cart.clear();
     }
 }

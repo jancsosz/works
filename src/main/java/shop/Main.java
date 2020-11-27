@@ -38,7 +38,15 @@ public class Main {
         cart.listCart();
         System.out.println("----------------------");
 
-        cart.transaction();
+        ArrayList<Product> bought = cart.transaction();
+        cart.clearCart();
+
+        for (int i = 0; i < bought.size(); i++){
+            for (int j = 0; i < products.size(); i++){
+
+                if (bought.get(i).getSerial() == (products.get(j).getSerial())) products.remove(j);
+            }
+        }
 
         try {
             CsvHandling.writeRemainingProducts(products);
@@ -47,7 +55,7 @@ public class Main {
         }
 
 
-        System.out.println(products.get(1).getType().getPrice());
+        //System.out.println(products.get(1).getType().getPrice());
 
 //        Product p = new Product(productTypes.get(0));
 //
